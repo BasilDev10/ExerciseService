@@ -49,13 +49,13 @@ public class NewsArticleController {
     public ResponseEntity updateNewsArticle(@PathVariable String id,@RequestBody @Valid NewsArticle newsArticle ,Errors errors){
         if (errors.hasErrors())return ResponseEntity.status(400).body(new ApiResponse(errors.getFieldError().getDefaultMessage()));
 
-        if(newsArticleService.updateNewsArticle(id,newsArticle))return ResponseEntity.ok(new ApiResponse("New Article is updated"));
+        if(newsArticleService.updateNewsArticle(id,newsArticle))return ResponseEntity.ok(new ApiResponse("News Article is updated"));
         else return ResponseEntity.status(400).body(new ApiResponse("Error : id not found"));
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteNewsArticle(@PathVariable String id){
-        if(newsArticleService.deleteNewsArticle(id))return ResponseEntity.ok(new ApiResponse("New Article is deleted"));
+        if(newsArticleService.deleteNewsArticle(id))return ResponseEntity.ok(new ApiResponse("News Article is deleted"));
         else return ResponseEntity.status(400).body(new ApiResponse("Error : id not found"));
     }
 
