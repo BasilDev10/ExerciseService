@@ -29,7 +29,7 @@ public class NewsArticleController {
         if(newsArticlesFound.size() > 0)return ResponseEntity.ok(newsArticlesFound);
         else return ResponseEntity.status(400).body(new ApiResponse("published news article not found"));
     }
-    @GetMapping("/get-all-searched/{category}")
+    @GetMapping("/get-all-category/{category}")
     public ResponseEntity getByCategoryNewsArticle(@PathVariable String category){
 
         ArrayList<NewsArticle> newsArticlesFound = newsArticleService.getByCategoryNewsArticle(category);
